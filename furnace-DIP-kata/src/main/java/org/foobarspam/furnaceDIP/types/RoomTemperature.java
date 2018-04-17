@@ -2,7 +2,15 @@ package org.foobarspam.furnaceDIP.types;
 
 public class RoomTemperature {
 	
-	private double temperature = 0;
+	private double temperature = 15;
+
+	private static RoomTemperature temperature = new RoomTemperature();
+
+	private RoomTemperature(){}
+
+	public static RoomTemperature getInstance(){
+		return temperature;
+	}
 	
 	public RoomTemperature(double temperature){
 		this.temperature = temperature;
@@ -12,12 +20,7 @@ public class RoomTemperature {
 		return this.temperature;
 	}
 
-	public void setTemperature(double temperature) {
-		this.temperature = temperature;
-	}
-	
 	public void incrementTemperature(double increment){
 		this.temperature += increment;
 	}
-
 }
